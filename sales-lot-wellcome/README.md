@@ -59,9 +59,6 @@ As configurações de execução são as seguintes:
 - `execution.kafka.topic.to.sale_data_read`: Indique o nome do tópico para onde os dados de venda devem ser enviados.
 
 
-[========]
-
-
 # Manual do usuário
 
 ## Pré-requisitos
@@ -70,7 +67,7 @@ Para rodar o projeto você precisa de:
 - Apache Maven 3.5.3+
 - Docker (ou a stack Apache Kafka + MongoDB instalados na máquina)
 
-:fa-info-circle: Na pasta raiz do projeto há um arquivo docker-compose com Apache Kafka e MongoDb configurados, basta em seu cmd navegar até o diretório e executar
+!!! Na pasta raiz do projeto há um arquivo docker-compose com Apache Kafka e MongoDb configurados, basta em seu cmd navegar até o diretório e executar
 `docker-compose up -d`
 
 
