@@ -4,14 +4,17 @@ Este projeto visa realizar a simulação de um ecossistema de MarketPlace onde o
 ## sales-lot-wellcome 
 Projeto que contém as implementações relativas ao recebimento de arquivos.
 
-## sales-ms
+## sales-ms (Não terminado)
 Projeto que contém as implementações relativas as vendas efetuadas.
 
-## customer-ms
+## customer-ms (Não terminado)
 Projeto que contém as implementações relativas a dados cadastrais de clientes.
 
-## seller-ms
+## seller-ms (Não terminado)
 Projeto que contém as implementações relativas a dados cadastrais de vendedores/parceiros comerciais
+
+## marketplace-api-gateway (Não terminado)
+Implementações relativas a iteração com usuários
 
 ## docker-compose
 
