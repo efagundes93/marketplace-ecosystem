@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Prices</title>
+    <title>Sales</title>
 
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.24.0/css/patternfly.min.css">
@@ -12,15 +12,15 @@
 <body>
 <div class="container">
 
-    <h2>Last Sale</h2>
+    <h2>The Last Sale</h2>
     <div class="row">
-    <p class="col-md-12">The sale id <strong><span id="content">N/A</span></strong>.</p>
+    <p class="col-md-12">The last reeceived sale id is <strong><span id="content">N/A</span></strong>.</p>
     </div>
 </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
-    var source = new EventSource("/sales/stream");
+    var source = new EventSource("/sales/stream/last-created-id");
     source.onmessage = function (event) {
         document.getElementById("content").innerHTML = event.data;
     };

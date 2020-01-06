@@ -3,88 +3,109 @@ package br.com.atox.sales.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class SaleItem implements Serializable {
-	/**
-	 *
-	 */
-	private static final long serialVersionUID = 7215048161972004568L;
-	private Long id;
-	private Long quantity;
-	private Long price;
+import io.quarkus.runtime.annotations.RegisterForReflection;
 
-	public SaleItem() {
-	}
+/**
+ * SaleItem
+ */
+@RegisterForReflection
+public class SaleItem implements Serializable{
 
-	public SaleItem(Long id, Long quantity, Long price) {
-		this.id = id;
-		this.quantity = quantity;
-		this.price = price;
-	}
+    /**
+     *
+     */
+    private static final long serialVersionUID = -6167975593745758549L;
+    private Long itemSequenceNumber;
+    private Long quantity;
+    private Long price;
+    private String productId;
 
-	public Long getId() {
-		return this.id;
-	}
+    public SaleItem() {
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public SaleItem(Long itemSequenceNumber, Long quantity, Long price, String productId) {
+        this.itemSequenceNumber = itemSequenceNumber;
+        this.quantity = quantity;
+        this.price = price;
+        this.productId = productId;
+    }
 
-	public Long getQuantity() {
-		return this.quantity;
-	}
+    public Long getItemSequenceNumber() {
+        return this.itemSequenceNumber;
+    }
 
-	public void setQuantity(Long quantity) {
-		this.quantity = quantity;
-	}
+    public void setItemSequenceNumber(Long itemSequenceNumber) {
+        this.itemSequenceNumber = itemSequenceNumber;
+    }
 
-	public Long getPrice() {
-		return this.price;
-	}
+    public Long getQuantity() {
+        return this.quantity;
+    }
 
-	public void setPrice(Long price) {
-		this.price = price;
-	}
+    public void setQuantity(Long quantity) {
+        this.quantity = quantity;
+    }
 
-	public SaleItem id(Long id) {
-		this.id = id;
-		return this;
-	}
+    public Long getPrice() {
+        return this.price;
+    }
 
-	public SaleItem quantity(Long quantity) {
-		this.quantity = quantity;
-		return this;
-	}
+    public void setPrice(Long price) {
+        this.price = price;
+    }
 
-	public SaleItem price(Long price) {
-		this.price = price;
-		return this;
-	}
+    public String getProductId() {
+        return this.productId;
+    }
 
-	@Override
-	public boolean equals(Object o) {
-		if (o == this)
-			return true;
-		if (!(o instanceof SaleItem)) {
-			return false;
-		}
-		SaleItem saleItem = (SaleItem) o;
-		return Objects.equals(id, saleItem.id) && Objects.equals(quantity, saleItem.quantity) && Objects.equals(price, saleItem.price);
-	}
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(id, quantity, price);
-	}
+    public SaleItem itemSequenceNumber(Long itemSequenceNumber) {
+        this.itemSequenceNumber = itemSequenceNumber;
+        return this;
+    }
 
-	@Override
-	public String toString() {
-		return "{" +
-			" id='" + getId() + "'" +
-			", quantity='" + getQuantity() + "'" +
-			", price='" + getPrice() + "'" +
-			"}";
-	}
+    public SaleItem quantity(Long quantity) {
+        this.quantity = quantity;
+        return this;
+    }
 
+    public SaleItem price(Long price) {
+        this.price = price;
+        return this;
+    }
 
-	
+    public SaleItem productId(String productId) {
+        this.productId = productId;
+        return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof SaleItem)) {
+            return false;
+        }
+        SaleItem saleItem = (SaleItem) o;
+        return Objects.equals(itemSequenceNumber, saleItem.itemSequenceNumber) && Objects.equals(quantity, saleItem.quantity) && Objects.equals(price, saleItem.price) && Objects.equals(productId, saleItem.productId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(itemSequenceNumber, quantity, price, productId);
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+            " itemSequenceNumber='" + getItemSequenceNumber() + "'" +
+            ", quantity='" + getQuantity() + "'" +
+            ", price='" + getPrice() + "'" +
+            ", productId='" + getProductId() + "'" +
+            "}";
+    }
+
 }
