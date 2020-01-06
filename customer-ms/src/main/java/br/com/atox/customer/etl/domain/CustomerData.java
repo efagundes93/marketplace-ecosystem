@@ -1,24 +1,31 @@
-package br.com.atox.customer.domain;
+package br.com.atox.customer.etl.domain;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-import io.quarkus.mongodb.panache.MongoEntity;
-/**
- * <p> Entidade de dominio dos dados de clientes <p>
- * @author Emiliano Thomas Fagundes
- */
-@MongoEntity(collection = "CustomerReceivedData")
-public class Customer {
+import br.com.atox.customer.domain.Customer;
+import io.quarkus.runtime.annotations.RegisterForReflection;
 
-	private String legalDocumentNumber;
+/**
+ * CustomerData
+ */
+@RegisterForReflection
+public class CustomerData implements Serializable{
+
+    
+    /**
+     *
+     */
+    private static final long serialVersionUID = -3628523315128328364L;
+    private String legalDocumentNumber;
 	private String name;
 	private String businessArea;
 
 
-	public Customer() {
+	public CustomerData() {
 	}
 
-	public Customer(String legalDocumentNumber, String name, String businessArea) {
+	public CustomerData(String legalDocumentNumber, String name, String businessArea) {
 		this.legalDocumentNumber = legalDocumentNumber;
 		this.name = name;
 		this.businessArea = businessArea;
@@ -48,17 +55,17 @@ public class Customer {
 		this.businessArea = businessArea;
 	}
 
-	public Customer legalDocumentNumber(String legalDocumentNumber) {
+	public CustomerData legalDocumentNumber(String legalDocumentNumber) {
 		this.legalDocumentNumber = legalDocumentNumber;
 		return this;
 	}
 
-	public Customer name(String name) {
+	public CustomerData name(String name) {
 		this.name = name;
 		return this;
 	}
 
-	public Customer businessArea(String businessArea) {
+	public CustomerData businessArea(String businessArea) {
 		this.businessArea = businessArea;
 		return this;
 	}
@@ -70,7 +77,7 @@ public class Customer {
 		if (!(o instanceof Customer)) {
 			return false;
 		}
-		Customer customer = (Customer) o;
+		CustomerData customer = (CustomerData) o;
 		return Objects.equals(legalDocumentNumber, customer.legalDocumentNumber) && Objects.equals(name, customer.name) && Objects.equals(businessArea, customer.businessArea);
 	}
 
@@ -86,5 +93,5 @@ public class Customer {
 			", name='" + getName() + "'" +
 			", businessArea='" + getBusinessArea() + "'" +
 			"}";
-	}	
+	}
 }
