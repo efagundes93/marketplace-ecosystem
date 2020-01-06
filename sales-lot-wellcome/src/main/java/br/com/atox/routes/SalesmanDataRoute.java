@@ -35,6 +35,7 @@ public class SalesmanDataRoute  extends RouteBuilder {
         from(DIRECT_ROUTE_TO_SALESMAN_DATA)
             .process(salesmanProcessor)
             .to(MONGODB_SAVE_SALESMAN_DATA)
+            .marshal().json()
             .setHeader(KafkaConstants.KEY, constant(UUID.randomUUID().toString())) 
             .to(buildKafkaEndpoint());
     }    

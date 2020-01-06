@@ -1,4 +1,4 @@
-package br.com.atox.domain;
+package br.com.atox.sales.domain;
 
 import java.io.Serializable;
 import java.util.Objects;

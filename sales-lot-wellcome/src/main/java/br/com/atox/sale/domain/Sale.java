@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
+
+@RegisterForReflection
 public class Sale implements Serializable{
 
 	/**

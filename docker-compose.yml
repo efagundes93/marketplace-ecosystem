@@ -30,3 +30,15 @@ services:
     ports:
       - 27017:27017
     command: mongod --smallfiles --logpath=/dev/null # --quiet
+
+  kafka-manager:
+    image: intropro/kafka-manager
+    container_name: kafka-manager
+    ports:
+      - "9000:9000"
+    links:
+      - zookeeper
+      - kafka
+    environment:
+      ZK_HOSTS: localhost:2181
+      KM_ARGS: -Djava.net.preferIPv4Stack=true

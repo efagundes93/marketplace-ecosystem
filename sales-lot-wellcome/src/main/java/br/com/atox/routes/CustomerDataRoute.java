@@ -37,6 +37,7 @@ public class CustomerDataRoute extends RouteBuilder {
         .process(customerProcessor)
             .to(MONGODB_SAVE_CUSTOMER_DATA)
                 .setHeader(KafkaConstants.KEY, constant(UUID.randomUUID().toString())) 
+                .marshal().json()
                     .to(buildKafkaEndpoint());
     }
 

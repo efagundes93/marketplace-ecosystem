@@ -3,6 +3,9 @@ package br.com.atox.sale.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
+
+@RegisterForReflection
 public class SaleItem implements Serializable {
 	/**
 	 *

@@ -41,7 +41,9 @@ public class SalesDataRoute extends RouteBuilder {
     
     @Inject
     SynthetizeSaleProcessor synthetizeSaleProcessor;
-
+ 
+    
+    
     public static final String DIRECT_ROUTE_TO_SALES_DATA = "direct:onSaleReaded";
 
 	String MONGODB_BULK_WRITE_SALE_SYNTHESIS = "mongodb:myDb?database=sales-ecosystem&collection=SaleSynthesis&operation=bulkWrite";
@@ -52,7 +54,8 @@ public class SalesDataRoute extends RouteBuilder {
        
         from(DIRECT_ROUTE_TO_SALES_DATA)
             .process(saleProcessor)
-            .setHeader(KafkaConstants.KEY, constant(UUID.randomUUID().toString())) 
+            .marshal().json()
+        .setHeader(KafkaConstants.KEY, constant(UUID.randomUUID().toString())) 
         .to(buildKafkaEndpoint())
         .process(synthetizeSaleProcessor)
             .aggregate(constant(true), new SaleSynthesisAggregatorStrategy())
